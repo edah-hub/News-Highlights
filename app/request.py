@@ -38,3 +38,26 @@ def get_news(country):
 
 
 	return news_results
+
+def process_newsResults(news_list):
+	'''
+	Function that processes the news results and transforms them to a list of objects
+	'''
+
+	news_results = []
+	for news_item in news_list:
+		title = news_item.get('title')
+		description = news_item.get('description')
+		publishedAt = news_item.get('publishedAt')
+		content = news_item.get('content')
+		url = news_item.get('url')
+		img_url = news_item.get('urlToImage')
+
+		date_time_obj = datetime.datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
+		publishedAt = date_time_obj.date()
+
+		if img_url:
+			news_object = News(title,description,publishedAt,content,url,img_url)
+			news_results.append(news_object)
+
+	return news_results
