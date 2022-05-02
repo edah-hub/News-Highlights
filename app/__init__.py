@@ -1,5 +1,8 @@
 from flask import Flask
+from flask_bootstrap import Bootstrap
 from .config import DevConfig
+
+bootstrap = Bootstrap()
 
 # Initializing application
 app = Flask(__name__,instance_relative_config = True)
