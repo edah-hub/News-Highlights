@@ -1,8 +1,9 @@
-class News:
-    '''
-    News class to define News Objects
-    '''
-
+class Headlines:
+    """
+    This class helps to design Headlines object
+       
+    """
+    
     def __init__(self,author, title, description, url, urlToImage, publishedAt):
         """
         This method allows us to instantiate an instance.

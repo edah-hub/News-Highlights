@@ -1,11 +1,13 @@
 class Sources:
-    '''
-    a class defining different sources
-    '''
-    
-def __init__(self,id,author,title,description):
-     self.id =id
-     self.author =author
-     self.title =title
-     self.description =description
-    
+    """
+    class with sources object
+    """
+    def __init__(self, id, name, url, country, description):
+        """
+        This method allows us to instantiate an instance.
+        """
+        self.id = id
+        self.name = name
+        self.url = url
+        self.country = country
+        self.description = description

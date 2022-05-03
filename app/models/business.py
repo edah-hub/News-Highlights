@@ -1,8 +1,8 @@
-class News:
-    '''
-    News class to define News Objects
-    '''
-
+class Business:
+    """
+    This class helps to design Business object
+    """
+    
     def __init__(self,author, title, description, url, urlToImage, publishedAt):
         """
         This method allows us to instantiate an instance.
