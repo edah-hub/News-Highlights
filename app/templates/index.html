@@ -41,7 +41,7 @@
 <div class="container-fluid">
     <form>
         <input type="text" name="article_query" placeholder="Search for an Article" class="form-control">
-        <input type="submit" value="Search" class="btn btn-default">
+        <input type="submit" value="Search" class="btn btn-success">
     </form>
     <div class="row">
         <div class="container col-md-2 mb-12">
@@ -54,13 +54,13 @@
             </div>
         </div>
         <!--Grid column-->
-        <div class="col-lg-5 col-md-5 mb-12">
+        <div class="col-lg-5 col-md-10 mb-12">
             <h1 class="my-1">Wall Street Journal Articles</h1>
             <hr class="my-3">
             {{ macro.displayNews(others) }}
 
-        </div>
-        <div class="col-lg-5 col-md-5 mb-12">
+        <!-- </div> -->
+        <!-- <div class="col-lg-5 col-md-5 mb-12"> -->
             <h1 class="my-1">Top headlines in the US</h1>
             <hr class="my-3">
             {{ macro.displayNews(business_headlines) }}
