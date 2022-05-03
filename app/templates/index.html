@@ -10,10 +10,10 @@
 {% block content %}
 
   <!-- popular publisher -->
-  <h1>popular publisher</h1>
+  <!-- <h1>popular publisher</h1> -->
   
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <header class="news-highlight-header clearfix">
             <h2>News Highlight</h2>
@@ -36,7 +36,7 @@
 
     </div>
 
-</div>
+</div> -->
 
 <div class="container-fluid">
     <form>
@@ -54,13 +54,13 @@
             </div>
         </div>
         <!--Grid column-->
-        <div class="col-lg-5 col-md-12 mb-12">
+        <div class="col-lg-5 col-md-5 mb-12">
             <h1 class="my-1">Wall Street Journal Articles</h1>
             <hr class="my-3">
             {{ macro.displayNews(others) }}
 
         </div>
-        <div class="col-lg-5 col-md-12 mb-12">
+        <div class="col-lg-5 col-md-5 mb-12">
             <h1 class="my-1">Top headlines in the US</h1>
             <hr class="my-3">
             {{ macro.displayNews(business_headlines) }}
