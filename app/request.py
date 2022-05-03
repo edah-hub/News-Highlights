@@ -1,11 +1,11 @@
 from app import app
 import datetime
 import urllib.request,json
-from .models import news,sources,entertainment
+from .models import news,sources
 
 News = news.News
 Sources = sources.Sources
-Entertainment = entertainment.Entertainment
+
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -17,7 +17,7 @@ news_base_url = app.config["NEWS_HIGHLIGHTS_BASE_URL"]
 sources_base_url = app.config["NEWS_SOURCE_BASE_URL"]
 
 # Getting the entertainment news base url
-entertainment_base_url = app.config["NEWS_ENTERTAINMENT_BASE_URL"]
+# entertainment_base_url = app.config["NEWS_ENTERTAINMENT_BASE_URL"]
 
 
 def get_news(country):
@@ -38,6 +38,10 @@ def get_news(country):
 
 
 	return news_results
+
+
+# def get_sources():
+    
 
 def process_newsResults(news_list):
 	'''
