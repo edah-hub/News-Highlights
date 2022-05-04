@@ -1,9 +1,9 @@
 from flask import render_template,request,redirect,url_for
-from . import app
-from ..request import get_all_news_sources, get_all_news_headlines, get_everything_news, get_business_headlines, search_articles
+from . import main
+from ..requests import get_all_news_sources, get_all_news_headlines, get_everything_news, get_business_headlines, search_articles
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
     """
     This function views the root page that returns index.html page
@@ -20,7 +20,7 @@ def index():
         return render_template("index.html", sources = all_news_sources, title = title, others = everything_news_items, business_headlines = business_headlines)
     
     
-@app.route('/source/<source>')
+@main.route('/source/<source>')
 def news_healines(source):
     """
     This function retrieves live top and breaking headlines for a country.
@@ -29,7 +29,7 @@ def news_healines(source):
     news_healines = get_all_news_headlines(source)
     return render_template('news_articles.html', headlines = news_healines)
 
-@app.route('/search/<source_name>')
+@main.route('/search/<source_name>')
 def search(source_name):
     """
     View function to display search results.

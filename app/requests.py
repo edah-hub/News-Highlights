@@ -1,79 +1,24 @@
-from app import app
-import datetime
-import urllib.request,json
-from .models import sources, headlines, news, business ,everything
-
-News = news.News
-Sources = sources.Sources
-Headlines = headlines.Headlines
-Business = business.Business
-Everything = everything.Everything
+import urllib.request, json
+from .models import Sources, Headlines, Everything, Business
 
 
-# Getting api key
-api_key = app.config['NEWS_API_KEY']
 
-# Getting the news base url
-news_base_url = app.config["NEWS_HIGHLIGHTS_BASE_URL"]
+# Keys
+api_key = None
+sources_url = None
+everything_news_url = None
+top_headlines_news_url = None
+business_top_headlines_url = None
 
-# Getting the sources base url
-sources_base_url = app.config["NEWS_SOURCE_BASE_URL"]
-
-top_headlines_news_url = app.config["TOP_HEADLINES_BASE_URL"]
-
-everything_news_url = app.config["EVERYTHING_BASE_URL"]
-
-business_top_headlines_url = app.config["BUSINESS_TOP_HEADLINES_BASE_URL"]
-
-# Getting the entertainment news base url
-# entertainment_base_url = app.config["NEWS_ENTERTAINMENT_BASE_URL"]
+def configure_request(app):
+    global api_key, sources_url, everything_news_url, top_headlines_news_url, business_top_headlines_url
+    api_key = app.config['NEWS_API_KEY']
+    sources_url = app.config['SOURCES_BASE_API_URL']
+    everything_news_url = app.config['EVERYTHING_BASE_API_URL']
+    top_headlines_news_url = app.config['TOP_HEADLINES_BASE_API_URL']
+    business_top_headlines_url = app.config['BUSINESS_TOP_HEADLINES']
 
 
-def get_news(country):
-	'''
-	Function that gets the json response to our url request
-	'''
-	get_news_url = news_base_url.format(country,api_key)
-
-	with urllib.request.urlopen(get_news_url) as url:
-		get_news_data = url.read()
-		get_news_response = json.loads(get_news_data)
-
-		news_results = None
-
-		if get_news_response['articles']:
-			news_result_list = get_news_response['articles']
-			news_results = process_newsResults(news_result_list)
-
-
-	return news_results
-
-
-# def get_sources():
-    
-
-def process_newsResults(news_list):
-	'''
-	Function that processes the news results and transforms them to a list of objects
-	'''
-
-	news_results = []
-	for news_item in news_list:
-		title = news_item.get('title')
-		description = news_item.get('description')
-		publishedAt = news_item.get('publishedAt')
-		content = news_item.get('content')
-		url = news_item.get('url')
-		img_url = news_item.get('urlToImage')
-
-		date_time_obj = datetime.datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
-		publishedAt = date_time_obj.date()
-
-		if img_url:
-			news_object = News(title,description,publishedAt,content,url,img_url)
-			news_results.append(news_object)
-
-	return news_results
 
 def get_all_news_sources():
     """
@@ -82,7 +27,7 @@ def get_all_news_sources():
     process_all_news_sources_data() function. 
     get_all_news_sources() will finally return all the required news sources.
     """
-    complete_sources_url = sources_base_url.format(api_key)
+    complete_sources_url = sources_url.format(api_key)
 
     with urllib.request.urlopen(complete_sources_url) as url:
         sources_data = url.read()
@@ -96,6 +41,8 @@ def get_all_news_sources():
             sources_results = process_all_news_sources_data(sources_items)
 
     return sources_results
+    
+
 
 def process_all_news_sources_data(sources_list):
     """
@@ -240,4 +187,4 @@ def search_articles(source):
             search_article_list = search_article_response['articles']
             search_article_results = process_all_business_headlines_results(search_article_list)
     return search_article_results
-    
+        
