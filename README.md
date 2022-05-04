@@ -2,7 +2,7 @@
 
 This is an application that lists news articles from various sources and helps the busy people to keep up with the current affairs.  
 
-[image.png](https://postimg.cc/8sD6xB2t)
+[![image.png](https://i.postimg.cc/L4g3YxNK/image.png)](https://postimg.cc/8sD6xB2t)
 
 # BEHAVIOUR DRIVEN DEVELOPMENT (BDD)
 Behaviour                                 | Given                     | Output                                  |
