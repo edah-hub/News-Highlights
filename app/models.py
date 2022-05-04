@@ -1,6 +1,6 @@
 class News:
     """
-    This class helps to design Business data to have:
+    A class helps to design Business object
 
     """
     
@@ -17,8 +17,7 @@ class News:
 
 class Business:
     """
-    This class helps to design Business data to have:
-
+    This class helps to design Business object
     """
     
     def __init__(self,author, title, description, url, urlToImage, publishedAt):
