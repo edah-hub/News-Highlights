@@ -7,7 +7,7 @@ This is an application that lists news articles from various sources and helps t
 # BEHAVIOUR DRIVEN DEVELOPMENT (BDD)
 Behaviour                                 | Given                     | Output                                  |
 ------------------------------------------|---------------------------|-----------------------------------------|
-Display articles based on a single source | ABC on input form         | Display all articles for ABC            |
+Display articles based on a single source | BBC on input form         | Display all articles for BBC            |
 Read an article on its url page           | CLick 'Read more' button  | Redirect to respective aricles homepage |
 
 ### LIVE LINK
@@ -30,7 +30,7 @@ To fix a bug or enhance an existing module, follow these steps:
 ## Setup/Installation Requirements
    * To run the application, in your terminal:
 
-    1. Clone or download the Repository
+    1. Clone or download zip the Repository
     2. Create a virtual environment
     3. Read the requirements file and Install all the requirements.
     4. Edit the start.sh file with your api key from the news.org website
